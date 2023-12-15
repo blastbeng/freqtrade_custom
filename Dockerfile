@@ -15,4 +15,5 @@ RUN chmod +x rustup-install.sh
 RUN ./rustup-install.sh -y
 RUN . "$HOME/.cargo/env"
 
+RUN pip install --user wheel setuptools setuptools_rust
 RUN pip install --user --force-reinstall --ignore-installed --no-binary :all: polars
