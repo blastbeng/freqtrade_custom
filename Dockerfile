@@ -15,11 +15,13 @@ RUN chmod +x rustup-install.sh
 RUN ./rustup-install.sh -y
 RUN . "$HOME/.cargo/env"
 
-RUN mkdir /$HOME/tmpbuild
+RUN mkdir "/$HOME/tmpbuild"
 
-ENV TMPDIR=/$HOME/tmpbuild
+ENV TMPDIR="/$HOME/tmpbuild"
+
+ENV PATH="$HOME/.cargo/bin:$PATH"
 
 RUN pip install --user wheel setuptools setuptools_rust
 RUN pip install --user --force-reinstall --ignore-installed --no-binary :all: polars
 
-RUN rm -rf /$HOME/tmpbuild
+RUN rm -rf "/$HOME/tmpbuild"
