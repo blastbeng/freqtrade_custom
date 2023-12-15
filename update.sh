@@ -5,6 +5,6 @@ cd ./phils_strategies
 /usr/bin/git pull
 cd ..
 
-docker compose build --no-cache
+docker compose build
 
 sudo systemctl start docker-compose@freqtrade
