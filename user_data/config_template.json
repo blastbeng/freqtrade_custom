@@ -31,8 +31,8 @@
     },
     "exchange": {
         "name": "kraken",
-        "key": "lnv2VE+LY/IX9pDDMuLwJR1zQbSbuhbaNuPKHvvIJFG7wR7Y6bwK2xkJ",
-        "secret": "IBI+EW/6g3EFUtdHqhGNZLa8lvldO1DWx8yUmf2SJjPT8I4QJGwqgTf0k5CTTldIaqK4Qm5ZzR4uUxPh8XDPLA==",
+        "key": "",
+        "secret": "",
         "ccxt_config": {},
         "ccxt_async_config": {},
         "pair_whitelist": [
@@ -48,7 +48,7 @@
     },
     "pairlists": [{
 	"method": "VolumePairList",
-	"number_assets": 1,
+	"number_assets": 50,
         "sort_key": "quoteVolume",
         "refresh_period": 86400
     },
@@ -90,7 +90,7 @@
     },
     "telegram": {
         "enabled": true,
-        "token": "5918947094:AAGup3hJNMbYMPrUKQ3Nw67B5ONFuwSkHew",
+        "token": "",
         "chat_id": "632778659"
     },
     "api_server": {
@@ -98,10 +98,10 @@
         "listen_ip_address": "0.0.0.0",
         "listen_port": 9671,
         "verbosity": "error",
-        "jwt_secret_key": "ew7Bahchee6eivaiFeiHoo7Ko6Quaib8wovoh5on3Phuiy6HaemooWa5queiChei",
+        "jwt_secret_key": "",
         "CORS_origins": [],
-        "username": "blast",
-        "password": "2Fa74lov$"
+        "username": "",
+        "password": ""
     },
     "bot_name": "freqtrade",
     "initial_state": "running",
