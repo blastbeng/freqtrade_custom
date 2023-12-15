@@ -14,6 +14,11 @@ services:
     #           capabilities: [gpu]
 
     # Build step - only needed when additional dependencies are needed
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Rome
+      - LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgomp.so.1
     build:
       context: .
       dockerfile: "./Dockerfile"
