@@ -174,3 +174,4 @@ freqaimodels
 databases
 configs
 tfbuild
+tensorflow*
