@@ -1,7 +1,7 @@
 # freqtrade
 Requirements:
     systemd enabled distro.
-    clone this repo in /opt/docker/compose/freqtrade, else you'll need to edit docker-compose@.service..
+    clone this repo in /opt/docker/compose/freqtrade, else you'll need to edit docker-compose@.service.
 
 
 I made this repo to make freqtrade works on my old UDOO X86, which doesn't support AVX instructions.
@@ -15,4 +15,4 @@ To build tensorflow follow this guide: https://www.tensorflow.org/install/source
 
 
 
-If you have a CPU that supports AVX just use the docker compose file "docker-compose.yml"
+If you have a CPU that supports AVX just use the docker compose file "docker-compose.tf_included.yml"
