@@ -6,20 +6,16 @@ COPY ./freqtrade-git/requirements-freqai.txt ./freqtrade-git/requirements-freqai
 
 RUN pip install -r requirements-freqai-rl.txt --user 
 
-RUN pip install --user --no-cache-dir tensorflow PyWavelets torch darts multiprocess finta tqdm keras
-
-RUN pip install --user setuptools setuptools_rust
-
-RUN pip uninstall -y polars
-
-RUN curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf >> rustup-install.sh
-RUN chmod +x rustup-install.sh
-RUN ./rustup-install.sh -y
-
 USER root
 
-RUN apt install -y build-essential cmake
+COPY tensorflow-2.16.0-cp311-cp311-linux_x86_64.whl /freqtrade/
+
+RUN chown ftuser:ftuser /freqtrade/tensorflow-2.16.0-cp311-cp311-linux_x86_64.whl
 
 USER ftuser
 
-RUN export PATH="/home/ftuser/.cargo/bin:$PATH"; pip3 install --user --force-reinstall --ignore-installed --no-binary :all: polars
+RUN pip install --user tensorflow-2.16.0-cp311-cp311-linux_x86_64.whl
+
+RUN pip install --user PyWavelets darts multiprocess finta statsforecast prettytable
+
+RUN pip uninstall -y polars
