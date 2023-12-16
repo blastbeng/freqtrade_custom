@@ -4,5 +4,7 @@
 ./update.sh
 
 docker compose build
+sudo cp docker-compose@.service /lib/systemd/systemd/docker-compose@.service
+sudo systemctl daemon-reload
 sudo systemctl enable docker-compose@freqtrade
 sudo systemctl start docker-compose@freqtrade
