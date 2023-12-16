@@ -6,15 +6,9 @@ COPY ./freqtrade-git/requirements-freqai.txt ./freqtrade-git/requirements-freqai
 
 RUN pip install -r requirements-freqai-rl.txt --user 
 
-USER root
-
-COPY tensorflow.whl /freqtrade/
-
-RUN chown ftuser:ftuser /freqtrade/tensorflow.whl
-
 USER ftuser
 
-RUN pip install --user tensorflow.whl
+RUN pip install --user tensorflow
 
 RUN pip install --user PyWavelets darts multiprocess finta statsforecast prettytable
 
