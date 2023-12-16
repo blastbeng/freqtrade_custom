@@ -20,7 +20,7 @@ services:
       - TZ=Europe/Rome
     build:
       context: .
-      dockerfile: "./Dockerfile"
+      dockerfile: "./Dockerfile.tf_included"
     restart: unless-stopped
     container_name: freqtrade
     volumes:
