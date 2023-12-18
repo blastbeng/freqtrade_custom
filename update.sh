@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /opt/docker/compose/freqtrade
-cd ../phils_strategies
+cd ./phils_strategies
 /usr/bin/git pull
 cd ..
 
