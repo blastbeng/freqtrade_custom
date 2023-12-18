@@ -1,0 +1,15 @@
+finta
+prettytable
+PyWavelets
+simdkalman
+pykalman
+scipy
+scikit-learn
+ast_comments
+rich
+xgboost
+lightgbm
+torch
+torchvision
+statsforecast
+multiprocess
