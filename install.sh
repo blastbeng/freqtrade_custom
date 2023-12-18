@@ -5,7 +5,9 @@ cd /opt/docker/compose/freqtrade
 ./update.sh
 
 
-mkdir -p ./custom_strategies/models/
+mkdir -p ./custom_strategies/utils/
+cp -rf ./phils_strategies/utils/* ./custom_strategies/utils/
+mkdir -p ./custom_strategies/models /
 cp -rf ./phils_strategies/NNPredict/models/* ./custom_strategies/models/
 
 docker compose build

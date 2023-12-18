@@ -62,15 +62,17 @@ RUN pip install -r requirements-freqai-rl.txt --user --no-cache-dir
 
 COPY --chown=ftuser:ftuser tensorflow-2.15.0-cp310-cp310-linux_x86_64.whl /freqtrade/
 
+COPY requirements-custom.txt /freqtrade/
+
+RUN pip install -r requirements-custom.txt --user --no-cache-dir
+
 RUN chown ftuser:ftuser /freqtrade/tensorflow-2.15.0-cp310-cp310-linux_x86_64.whl
 
 RUN pip install --user tensorflow-2.15.0-cp310-cp310-linux_x86_64.whl
 
-#COPY requirements-ft.txt /freqtrade/
-
-#RUN pip install -r requirements-ft.txt --user --no-cache-dir
-
 RUN pip uninstall -y polars
+
+RUN pip install --user --no-cache-dir polars-lts-cpu
 
 ENTRYPOINT ["freqtrade"]
 # Default to trade mode
