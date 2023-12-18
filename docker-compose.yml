@@ -25,8 +25,7 @@ services:
     container_name: freqtrade
     volumes:
       - "./user_data:/freqtrade/user_data"
-      - "./phils_strategies/Anomaly:/freqtrade/user_data/strategies"
-      - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
+      - "./custom_strategies:/freqtrade/user_data/strategies"
     # Expose api on port 8080 (localhost only)
     # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
     # for more information.
@@ -38,5 +37,5 @@ services:
       --logfile /freqtrade/user_data/logs/freqtrade.log
       --db-url sqlite:////freqtrade/user_data/databases/tradesv3_dryrun.sqlite
       --config /freqtrade/user_data/configs/config_dryrun.json
-      --freqaimodel XGBoostRegressor
-      --strategy Anomaly
+      --freqaimodel CatboostRegressor
+      --strategy NNPredict
