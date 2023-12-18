@@ -38,4 +38,4 @@ services:
       --db-url sqlite:////freqtrade/user_data/databases/tradesv3_dryrun.sqlite
       --config /freqtrade/user_data/configs/config_dryrun.json
       --freqaimodel CatboostRegressor
-      --strategy NNPredict
+      --strategy NNPredict_CNN
