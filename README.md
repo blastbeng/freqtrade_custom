@@ -7,6 +7,11 @@ Requirements:
 I made this repo to make freqtrade works on my old UDOO X86, which doesn't support AVX instructions.
 Also polar wasn't working so I removed it from the Docker image.
 
+EDIT: there is a version of polar working on old CPUs, I have updated the dockerfile with this instruction:
+
+    RUN pip install --user --no-cache-dir polars-lts-cpu
+
+
 To make this work you need to build tensorflow by yourself and place it in the root dir of this project.
 Then rename the tensorflow wheel filename inside the root Dockerfile.
 
