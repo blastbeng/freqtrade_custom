@@ -1,7 +1,7 @@
 {
     "max_open_trades": 20,
     "stake_currency": "EUR",
-    "stake_amount": 10,
+    "stake_amount": 15,
     "tradable_balance_ratio": 0.99,
     "fiat_display_currency": "EUR",
     "timeframe": "5m",
@@ -29,8 +29,20 @@
         "use_order_book": true,
         "order_book_top": 1
     },
+    "order_types": {
+      "entry": "limit",
+      "exit": "limit",
+      "emergency_exit": "market",
+      "force_exit": "market",
+      "force_entry": "market",
+      "stoploss": "market",
+      "stoploss_on_exchange": false,
+      "stoploss_price_type": "last",
+      "stoploss_on_exchange_interval": 60,
+      "stoploss_on_exchange_limit_ratio": 0.99
+    },
     "exchange": {
-        "name": "kraken",
+        "name": "",
         "key": "",
         "secret": "",
         "ccxt_config": {},
@@ -42,17 +54,15 @@
             "USD/GBP",
             "USDT/EUR",
             "USDC/EUR",
-            "EUR/GBP",
-            "DOGE/EUR"
+            "EUR/GBP"
         ]
     },
     "pairlists": [{
-	"method": "VolumePairList",
-	"number_assets": 50,
+	    "method": "VolumePairList",
+	    "number_assets": 25,
         "sort_key": "quoteVolume",
-        "refresh_period": 86400
+        "refresh_period": 1800
     },
-    {"method": "AgeFilter", "min_days_listed": 10},
     {"method": "PriceFilter", "max_price": 20}
     ],
     "freqai": {
@@ -67,6 +77,8 @@
                 "5m"
             ],
             "include_corr_pairlist": [
+                "BTC/EUR",
+                "ETH/EUR"
             ],
             "label_period_candles": 20,
             "include_shifted_candles": 2,
@@ -86,12 +98,14 @@
         },
         "model_training_parameters": {
             "n_estimators": 1000
-        }
+        },
+        "n_jobs": 1.0,
+        "thread_count": 4.0
     },
     "telegram": {
         "enabled": true,
         "token": "",
-        "chat_id": "632778659"
+        "chat_id": ""
     },
     "api_server": {
         "enabled": true,
