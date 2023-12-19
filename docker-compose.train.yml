@@ -1,7 +1,7 @@
 ---
 version: '3'
 services:
-  freqtrade:
+  freqtrade-train:
     image: "blastbeng/freqtrade:freqai"
     # # Enable GPU Image and GPU Resources
     # # Make sure to uncomment the whole deploy section
@@ -21,8 +21,8 @@ services:
     build:
       context: .
       dockerfile: "./Dockerfile"
-    restart: unless-stopped
-    container_name: freqtrade
+    restart: "no"
+    container_name: freqtrade-train
     volumes:
       - "./user_data:/freqtrade/user_data"
       - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
