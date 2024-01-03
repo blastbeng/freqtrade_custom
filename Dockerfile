@@ -75,5 +75,5 @@ RUN pip uninstall -y polars
 RUN pip install --user --no-cache-dir polars-lts-cpu
 
 ENTRYPOINT ["freqtrade"]
-# Default to trade mode
-CMD [ "trade" ]
+
+CMD ["trade"]

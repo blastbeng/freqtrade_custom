@@ -33,7 +33,6 @@ services:
     # for more information.
     ports:
       - "0.0.0.0:9671:9671"
-    # Default command used when running `docker compose up`
     command: >
       trade
       --logfile /freqtrade/user_data/logs/freqtrade.log
