@@ -19,3 +19,7 @@ RUN pip install --user tensorflow-2.15.0-cp310-cp310-linux_x86_64.whl
 RUN pip install --user PyWavelets darts multiprocess finta statsforecast prettytable
 
 RUN pip uninstall -y polars
+
+ENTRYPOINT ["freqtrade"]
+
+CMD ["trade"]
