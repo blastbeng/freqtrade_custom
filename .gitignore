@@ -177,3 +177,4 @@ tfbuild
 tensorflow*
 custom_strategies
 models
+config.json
