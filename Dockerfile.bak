@@ -1,4 +1,4 @@
-FROM python:3.10-bullseye
+FROM python:3.10-slim-bullseye
 
 # Setup env
 ENV LANG C.UTF-8
@@ -74,6 +74,8 @@ RUN pip uninstall -y polars
 
 RUN pip install --user --no-cache-dir polars-lts-cpu
 
-ENTRYPOINT ["freqtrade"]
-# Default to trade mode
-CMD [ "trade" ]
+COPY --chown=ftuser:ftuser entrypoint.sh /freqtrade/
+
+RUN chmod +x /freqtrade/entrypoint.sh
+
+ENTRYPOINT ["/freqtrade/entrypoint.sh"]
