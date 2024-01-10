@@ -1,17 +1,7 @@
 #!/bin/bash
 cd /opt/docker/compose/freqtrade
 /usr/bin/git clone https://github.com/freqtrade/freqtrade freqtrade-git
-
-cd ./freqtrade-git
 /usr/bin/git clone https://github.com/nateemma/strategies phils_strategies
-
-cd /opt/docker/compose/freqtrade
-
-mkdir -p ./custom_strategies/utils/
-cp -rf ./phils_strategies/NNPredict/*.py ./custom_strategies/
-cp -rf ./phils_strategies/utils/* ./custom_strategies/utils/
-mkdir -p ./custom_strategies/models/
-cp -rf ./phils_strategies/NNPredict/models/* ./custom_strategies/models/
 
 docker compose build
 
