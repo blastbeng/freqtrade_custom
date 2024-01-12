@@ -176,7 +176,6 @@ configs
 tfbuild
 tensorflow*
 custom_strategies
-models
 keras_models
 ts_models
 config.json

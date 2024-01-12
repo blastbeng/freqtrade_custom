@@ -1,7 +1,7 @@
 ---
 version: '3'
 services:
-  freqtrade:
+  freqtrade-backtest:
     image: "blastbeng/freqtrade:freqai"
     environment:
       - PUID=1000
@@ -11,17 +11,18 @@ services:
       context: .
       dockerfile: "./Dockerfile"
     restart: unless-stopped
-    container_name: freqtrade
+    container_name: freqtrade-backtest
     volumes:
       - "./config.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
       - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
-      - "./models:/freqtrade/user_data/strategies/models"
+      - "./keras_models:/freqtrade/user_data/strategies/models"
     command: >
-      trade
-        --logfile /freqtrade/user_data/logs/freqtrade.log
-        --db-url sqlite:////freqtrade/user_data/databases/tradesv3.sqlite
+     download-data
+        --timerange=12012023-12012024
+        --logfile /freqtrade/user_data/logs/freqtrade-download.log
         --config /freqtrade/config.json
-        --freqaimodel CatboostRegressor
-        --strategy NNTC
+        --trading-mode futures
+        -t 5m
+        -p 

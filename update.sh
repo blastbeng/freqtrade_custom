@@ -9,6 +9,4 @@ cd ..
 
 docker compose build
 
-rm -rf ./keras_models/*
-
 sudo systemctl restart docker-compose@freqtrade
