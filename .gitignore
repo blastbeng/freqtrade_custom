@@ -179,4 +179,4 @@ custom_strategies
 keras_models
 ts_models
 config.json
-config-dryrun.json
+config_backtest.json

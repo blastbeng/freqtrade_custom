@@ -10,20 +10,20 @@ services:
     build:
       context: .
       dockerfile: "./Dockerfile"
-    restart: unless-stopped
+    restart: "no"
     container_name: freqtrade-backtest
     volumes:
-      - "./config.json:/freqtrade/config.json"
+      - "./config_backtest.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
       - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
-      - "./keras_models:/freqtrade/user_data/strategies/models"
+      - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
       backtesting 
         --cache none 
         --breakdown month
-        --timerange=12012023-12012024
-        --strategy-path /freqtrade/user_data/strategies
-        --strategy-list NNTC
+        --timerange=20231228-
+        --strategy NNTC
         --logfile /freqtrade/user_data/logs/freqtrade-backtest.log
         --config /freqtrade/config.json
+        --freqaimodel CatboostRegressor

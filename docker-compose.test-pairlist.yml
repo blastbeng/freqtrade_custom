@@ -19,11 +19,5 @@ services:
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
-     download-data
-        --days 365
-        --logfile /freqtrade/user_data/logs/freqtrade-download.log
+     test-pairlist
         --config /freqtrade/config.json
-        --dl-trades
-        -t 5m
-        -p ADA/EUR XRP/EUR DOT/EUR AVAX/EUR SUI/EUR MATIC/EUR ARB/EUR SEI/EUR ETC/EUR ATOM/EUR ENS/EUR KAVA/EUR LINK/EUR INJ/EUR NEAR/EUR DOGE/EUR XTZ/EUR SC/EUR STX/EUR LDO/EUR TIA/EUR OP/EUR MINA/EUR FIL/EUR FET/EUR SNX/EUR ALGO/EUR DAI/EUR KSM/EUR GRT/EUR BLUR/EUR
-        -v

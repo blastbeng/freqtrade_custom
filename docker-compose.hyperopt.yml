@@ -1,7 +1,7 @@
 ---
 version: '3'
 services:
-  freqtrade-backtest:
+  freqtrade-hyperopt:
     image: "blastbeng/freqtrade:freqai"
     environment:
       - PUID=1000
@@ -11,19 +11,21 @@ services:
       context: .
       dockerfile: "./Dockerfile"
     restart: "no"
-    container_name: freqtrade-backtest
+    container_name: freqtrade-hyperopt
     volumes:
-      - "./config.json:/freqtrade/config.json"
+      - "./config_backtest.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
       - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
-     download-data
-        --days 365
-        --logfile /freqtrade/user_data/logs/freqtrade-download.log
+      hyperopt 
+        --timerange=20231228-
+        --strategy NNTC
+        --logfile /freqtrade/user_data/logs/freqtrade-hyperopt.log
         --config /freqtrade/config.json
-        --dl-trades
-        -t 5m
-        -p ADA/EUR XRP/EUR DOT/EUR AVAX/EUR SUI/EUR MATIC/EUR ARB/EUR SEI/EUR ETC/EUR ATOM/EUR ENS/EUR KAVA/EUR LINK/EUR INJ/EUR NEAR/EUR DOGE/EUR XTZ/EUR SC/EUR STX/EUR LDO/EUR TIA/EUR OP/EUR MINA/EUR FIL/EUR FET/EUR SNX/EUR ALGO/EUR DAI/EUR KSM/EUR GRT/EUR BLUR/EUR
-        -v
+        --freqaimodel CatboostRegressor
+        --spaces roi trailing stoploss sell 
+        --hyperopt-loss ProfitDrawDownHyperOptLoss
+        --epochs 100
+        --min-trades 1

@@ -10,18 +10,18 @@ services:
     build:
       context: .
       dockerfile: "./Dockerfile"
-    restart: unless-stopped
+    restart: "no"
     container_name: freqtrade
     volumes:
       - "./config.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
-      - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
+      - "./phils_strategies/NNPredict:/freqtrade/user_data/strategies"
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
-      - "./models:/freqtrade/user_data/strategies/models"
+      - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
       trade
         --logfile /freqtrade/user_data/logs/freqtrade.log
         --db-url sqlite:////freqtrade/user_data/databases/tradesv3.sqlite
         --config /freqtrade/config.json
         --freqaimodel CatboostRegressor
-        --strategy NNTC
+        --strategy NNPredict_CNN

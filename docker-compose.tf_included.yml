@@ -10,7 +10,7 @@ services:
     build:
       context: .
       dockerfile: "./Dockerfile.tf_included"
-    restart: unless-stopped
+    restart: "no"
     container_name: freqtrade
     volumes:
       - "./config.json:/freqtrade/config.json"
