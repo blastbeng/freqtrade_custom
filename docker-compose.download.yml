@@ -1,7 +1,7 @@
 ---
 version: '3'
 services:
-  freqtrade-backtest:
+  freqtrade-download:
     image: "blastbeng/freqtrade:freqai"
     environment:
       - PUID=1000
@@ -11,16 +11,17 @@ services:
       context: .
       dockerfile: "./Dockerfile"
     restart: "no"
-    container_name: freqtrade-backtest
+    container_name: freqtrade-download
     volumes:
       - "./config.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
+      - "./data:/freqtrade/user_data/data"
       - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
      download-data
-        --days 365
+        --days 2
         --logfile /freqtrade/user_data/logs/freqtrade-download.log
         --config /freqtrade/config.json
         --dl-trades

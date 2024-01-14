@@ -15,6 +15,7 @@ services:
     volumes:
       - "./config_backtest.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
+      - "./data:/freqtrade/user_data/data"
       - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
       - "./generated_models:/freqtrade/user_data/strategies/models"
