@@ -179,4 +179,3 @@ custom_strategies
 keras_models
 ts_models
 config.json
-config_backtest.json

@@ -22,7 +22,7 @@ services:
       backtesting 
         --cache none 
         --breakdown month
-        --timerange=20231228-
+        --timerange=20240114-
         --strategy NNTC
         --logfile /freqtrade/user_data/logs/freqtrade-backtest.log
         --config /freqtrade/config.json
