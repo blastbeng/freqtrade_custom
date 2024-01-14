@@ -27,3 +27,8 @@ services:
         --logfile /freqtrade/user_data/logs/freqtrade-backtest.log
         --config /freqtrade/config.json
         --freqaimodel CatboostRegressor
+    networks:
+      - freqtrade-network-backtest
+
+networks:
+  freqtrade-network-backtest:

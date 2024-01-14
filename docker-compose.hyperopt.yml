@@ -29,3 +29,8 @@ services:
         --hyperopt-loss ProfitDrawDownHyperOptLoss
         --epochs 100
         --min-trades 1
+    networks:
+      - freqtrade-network-hyperopt
+
+networks:
+  freqtrade-network-hyperopt:

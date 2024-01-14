@@ -27,3 +27,8 @@ services:
         --config /freqtrade/config.json
         --freqaimodel CatboostRegressor
         --strategy NNPredict_CNN
+    networks:
+      - freqtrade-network
+
+networks:
+  freqtrade-network:

@@ -20,9 +20,14 @@ services:
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
      download-data
-        --days 2
+        --days 1000
         --logfile /freqtrade/user_data/logs/freqtrade-download.log
         --config /freqtrade/config.json
         --dl-trades
         -t 5m
-        -p ADA/EUR XRP/EUR DOT/EUR AVAX/EUR SUI/EUR MATIC/EUR ARB/EUR SEI/EUR ETC/EUR ATOM/EUR ENS/EUR KAVA/EUR LINK/EUR INJ/EUR NEAR/EUR DOGE/EUR XTZ/EUR SC/EUR STX/EUR LDO/EUR TIA/EUR OP/EUR MINA/EUR FIL/EUR FET/EUR SNX/EUR ALGO/EUR DAI/EUR KSM/EUR GRT/EUR BLUR/EUR
+        -p ADA/EUR LINK/EUR TIA/EUR DOGE/EUR XRP/EUR XTZ/EUR SC/EUR DOT/EUR MATIC/EUR ARB/EUR SUI/EUR SEI/EUR DYDX/EUR TRX/EUR ATOM/EUR ICP/EUR APT/EUR KAVA/EUR PYTH/EUR STX/EUR FIL/EUR PERP/EUR WOO/EUR LUNC/EUR JTO/EUR FET/EUR MINA/EUR GRT/EUR
+    networks:
+      - freqtrade-network-download
+
+networks:
+  freqtrade-network-download:

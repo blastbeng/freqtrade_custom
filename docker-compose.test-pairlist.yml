@@ -21,3 +21,8 @@ services:
     command: >
      test-pairlist
         --config /freqtrade/config.json
+    networks:
+      - freqtrade-network-test-pairlist
+
+networks:
+  freqtrade-network-test-pairlist:
