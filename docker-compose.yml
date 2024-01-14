@@ -17,7 +17,7 @@ services:
       - "./user_data:/freqtrade/user_data"
       - "./phils_strategies/NNPredict:/freqtrade/user_data/strategies"
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
-      - "./generated_models:/freqtrade/user_data/strategies/models"
+      - "./keras_models:/freqtrade/user_data/strategies/models"
     command: >
       trade
         --logfile /freqtrade/user_data/logs/freqtrade.log
