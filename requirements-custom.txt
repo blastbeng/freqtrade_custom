@@ -14,4 +14,7 @@ torchvision
 statsforecast
 multiprocess
 darts
-tensorflow-addons
+#tensorflow-addons
+tflite-runtime
+tensorflow
+arrow

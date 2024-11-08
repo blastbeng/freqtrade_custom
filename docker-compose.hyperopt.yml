@@ -1,5 +1,4 @@
 ---
-version: '3'
 services:
   freqtrade-hyperopt:
     image: "blastbeng/freqtrade:freqai"

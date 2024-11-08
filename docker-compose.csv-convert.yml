@@ -1,6 +1,6 @@
 ---
 services:
-  freqtrade-backtest:
+  freqtrade-csv-convert:
     image: "blastbeng/freqtrade:freqai"
     environment:
       - PUID=1000
@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: "./Dockerfile"
     restart: "no"
-    container_name: freqtrade-backtest
+    container_name: freqtrade-csv-convert
     volumes:
       - "./config.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
@@ -18,10 +18,12 @@ services:
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
-     test-pairlist
-        --config /freqtrade/config.json
+     convert-trade-data 
+      --exchange kraken
+      --format-from kraken_csv 
+      --format-to feather
     networks:
-      - freqtrade-network-test-pairlist
+      - freqtrade-network-csv-convert
 
 networks:
-  freqtrade-network-test-pairlist:
+  freqtrade-network-csv-convert:

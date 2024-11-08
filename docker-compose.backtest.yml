@@ -1,5 +1,4 @@
 ---
-version: '3'
 services:
   freqtrade-backtest:
     image: "blastbeng/freqtrade:freqai"
@@ -15,18 +14,15 @@ services:
     volumes:
       - "./config_backtest.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
-      - "./phils_strategies/NNTC:/freqtrade/user_data/strategies"
-      - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
-      backtesting 
-        --cache none 
+      backtesting
+        --cache none
         --breakdown month
         --timerange=20240114-
-        --strategy NNTC
+        --strategy ichiV1
         --logfile /freqtrade/user_data/logs/freqtrade-backtest.log
         --config /freqtrade/config.json
-        --freqaimodel CatboostRegressor
     networks:
       - freqtrade-network-backtest
 

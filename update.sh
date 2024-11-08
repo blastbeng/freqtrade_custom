@@ -9,4 +9,4 @@ cd ..
 
 docker compose build
 
-sudo systemctl restart docker-compose@freqtrade
+sudo systemctl restart freqtrade

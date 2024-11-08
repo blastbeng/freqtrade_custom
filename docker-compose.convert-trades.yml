@@ -1,6 +1,6 @@
 ---
 services:
-  freqtrade-backtest:
+  freqtrade-convert-trades:
     image: "blastbeng/freqtrade:freqai"
     environment:
       - PUID=1000
@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: "./Dockerfile"
     restart: "no"
-    container_name: freqtrade-backtest
+    container_name: freqtrade-convert-trades
     volumes:
       - "./config.json:/freqtrade/config.json"
       - "./user_data:/freqtrade/user_data"
@@ -18,10 +18,13 @@ services:
       - "./phils_strategies/utils:/freqtrade/user_data/strategies/utils"
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
-     test-pairlist
+     trades-to-ohlcv 
+        --exchange kraken 
         --config /freqtrade/config.json
+        --userdir /freqtrade/user_data/
+        -t 5m
     networks:
-      - freqtrade-network-test-pairlist
+      - freqtrade-network-convert-trades
 
 networks:
-  freqtrade-network-test-pairlist:
+  freqtrade-network-convert-trades:

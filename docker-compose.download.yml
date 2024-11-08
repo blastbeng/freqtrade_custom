@@ -1,5 +1,4 @@
 ---
-version: '3'
 services:
   freqtrade-download:
     image: "blastbeng/freqtrade:freqai"
@@ -20,11 +19,12 @@ services:
       - "./generated_models:/freqtrade/user_data/strategies/models"
     command: >
      download-data
-        --days 1
-        --logfile /freqtrade/user_data/logs/freqtrade-download.log
-        --config /freqtrade/config.json
+        --days 1200
         -t 5m
-        -p ADA/EUR LINK/EUR TIA/EUR XRP/EUR DOGE/EUR XTZ/EUR SC/EUR DOT/EUR MATIC/EUR ARB/EUR SUI/EUR SEI/EUR DYDX/EUR TRX/EUR ATOM/EUR ICP/EUR APT/EUR KAVA/EUR PYTH/EUR STX/EUR FIL/EUR DAI/EUR WOO/EUR JTO/EUR LUNC/EUR PERP/EUR MINA/EUR FET/EUR
+        --logfile /freqtrade/user_data/logs/freqtrade-download.log
+        --userdir /freqtrade/user_data/
+        --config /freqtrade/config.json
+        --dl-trades
     networks:
       - freqtrade-network-download
 
